@@ -9,9 +9,10 @@ import (
 func main() {
 	fmt.Println("Start build...")
 	var wg sync.WaitGroup
-	wg.Add(2)
+	wg.Add(3)
 	go build.BuildAppleTpl(&wg)
 	go build.BuildAppleCdn(&wg)
+	go build.BuildChnCidr(&wg)
 	wg.Wait()
 	fmt.Println("Build done!")
 }

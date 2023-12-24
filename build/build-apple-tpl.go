@@ -27,16 +27,28 @@ func BuildAppleTpl(wg *sync.WaitGroup) {
 	defer out.Close()
 
 	scanner := bufio.NewScanner(resp.Body)
+	lines := make([]string, 0)
 	for scanner.Scan() {
 		line := scanner.Text()
 		// fmt.Println(line)
 		if !strings.HasPrefix(line, "# http") && strings.TrimSpace(line) != "" {
+			lines = append(lines, line)
+		}
+	}
+	for i, line := range lines {
+		if i == len(lines)-1 {
+			_, err = out.WriteString(line)
+			if err != nil {
+				panic(err)
+			}
+		} else {
 			_, err = out.WriteString(line + "\n")
 			if err != nil {
 				panic(err)
 			}
 		}
 	}
+
 	if err := scanner.Err(); err != nil {
 		panic(err)
 	}
