@@ -14,5 +14,6 @@ func main() {
 	go build.BuildAppleCdn(&wg)
 	go build.BuildChnCidr(&wg)
 	wg.Wait()
+	build.BuildPublic()
 	fmt.Println("Build done!")
 }
