@@ -55,6 +55,9 @@ func walkDir(path string) ([]TreeEntry, error) {
 
 		for _, file := range files {
 			children, err := walkDir(filepath.Join(path, file.Name()))
+			if children[0].Name == ".gitkeep" {
+				continue
+			}
 			if err != nil {
 				return nil, err
 			}
