@@ -19,7 +19,7 @@ func main() {
 	build.BuildPublic()
 	fmt.Println("Build done!")
 	// 设置静态文件服务的根目录
-	fs := http.FileServer(http.Dir("./"))
+	fs := http.FileServer(http.Dir("/root/"))
 
 	// 将根URL路径（"/"）映射到文件服务器
 	http.Handle("/", fs)
