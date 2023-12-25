@@ -25,7 +25,7 @@ func BuildChnCidr(wg *sync.WaitGroup) {
 	}
 	defer resp.Body.Close()
 
-	out, err := os.Create("./Source/ip/china_ip.conf")
+	out, err := os.Create("./List/ip/china_ip.conf")
 	if err != nil {
 		panic(err)
 	}

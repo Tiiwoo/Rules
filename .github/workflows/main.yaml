@@ -25,7 +25,7 @@ jobs:
       - name: Move files
         run: |
           mkdir publish
-          mv index.html Source publish/
+          mv index.html List Modules Script LICENSE publish/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

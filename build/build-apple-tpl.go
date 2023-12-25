@@ -20,7 +20,7 @@ func BuildAppleTpl(wg *sync.WaitGroup) {
 	}
 	defer resp.Body.Close()
 
-	out, err := os.Create("./Source/tpl/apple.tpl")
+	out, err := os.Create("./List/tpl/apple.tpl")
 	if err != nil {
 		panic(err)
 	}

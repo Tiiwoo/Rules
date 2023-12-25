@@ -20,7 +20,7 @@ func BuildAppleCdn(wg *sync.WaitGroup) {
 	}
 	defer resp.Body.Close()
 
-	out, err := os.Create("./Source/domainset/apple_cdn.conf")
+	out, err := os.Create("./List/domainset/apple_cdn.conf")
 	if err != nil {
 		panic(err)
 	}

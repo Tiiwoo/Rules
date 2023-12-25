@@ -4,9 +4,11 @@ import (
 	"Rules/build"
 	"fmt"
 	"sync"
+	"time"
 )
 
 func main() {
+	now := time.Now()
 	fmt.Println("Start build...")
 	var wg sync.WaitGroup
 	wg.Add(3)
@@ -16,4 +18,7 @@ func main() {
 	wg.Wait()
 	build.BuildPublic()
 	fmt.Println("Build done!")
+	end := time.Now()
+	elapsed := end.Sub(now)
+	fmt.Printf("Total build time: %v\n", elapsed)
 }

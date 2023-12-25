@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"time"
 )
 
 type EntryType string
@@ -22,6 +23,17 @@ type TreeEntry struct {
 	Children []TreeEntry
 }
 
+var priorityOrder = map[string]int{
+	"domainset": 1,
+	"non_ip":    2,
+	"ip":        3,
+	"tpl":       4,
+	"List":      10,
+	"Modules":   13,
+	"Script":    14,
+	"LICENSE":   20,
+}
+
 func prioritySorter(entries []TreeEntry) {
 	sort.Slice(entries, func(i, j int) bool {
 		if entries[i].Type == Directory && entries[j].Type != Directory {
@@ -29,6 +41,9 @@ func prioritySorter(entries []TreeEntry) {
 		}
 		if entries[i].Type != Directory && entries[j].Type == Directory {
 			return false
+		}
+		if entries[i].Type == Directory && entries[j].Type == Directory {
+			return priorityOrder[entries[i].Name] < priorityOrder[entries[j].Name]
 		}
 		return entries[i].Name < entries[j].Name
 	})
@@ -54,10 +69,10 @@ func walkDir(path string) ([]TreeEntry, error) {
 		}
 
 		for _, file := range files {
-			children, err := walkDir(filepath.Join(path, file.Name()))
-			if children[0].Name == ".gitkeep" {
+			if file.Name() == ".gitkeep" {
 				continue
 			}
+			children, err := walkDir(filepath.Join(path, file.Name()))
 			if err != nil {
 				return nil, err
 			}
@@ -67,6 +82,9 @@ func walkDir(path string) ([]TreeEntry, error) {
 		entry.Type = File
 	}
 
+	if entry.Type == Directory && len(entry.Children) == 0 {
+		return entries, nil
+	}
 	entries = append(entries, entry)
 	return entries, nil
 }
@@ -115,6 +133,13 @@ func generateHtml(tree []TreeEntry) string {
 <body>
     <main class="container">
         <h1>Surge Ruleset Server</h1>
+		<p>
+      		Made by <a href="https://tiiwoo.moe">Tiiwoo</a> | <a href="https://github.com/Tiiwoo/Rules/">Source @ GitHub</a> | Licensed under <a href="LICENSE" target="_blank">AGPL-3.0</a>
+    	</p>
+		<p>Last Build: `
+	currentTime := time.Now().Format(time.RFC3339Nano)
+	html += currentTime
+	html += `</p>
         <ul class="directory-list">`
 
 	html += walk(tree)
@@ -128,10 +153,21 @@ func generateHtml(tree []TreeEntry) string {
 }
 
 func BuildPublic() {
-	tree, err := walkDir("Source")
+	tree, err := walkDir("List")
 	if err != nil {
 		panic(err)
 	}
+	script, err := walkDir("Script")
+	if err != nil {
+		panic(err)
+	}
+	modules, err := walkDir("Modules")
+	if err != nil {
+		panic(err)
+	}
+	tree = append(tree, script...)
+	tree = append(tree, modules...)
+	tree = append(tree, TreeEntry{Type: File, Name: "LICENSE", Path: "LICENSE"})
 
 	htmlContent := generateHtml(tree)
 	out, err := os.Create("./index.html")
