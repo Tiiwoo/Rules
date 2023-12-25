@@ -1,4 +1,4 @@
-# Surge
+# Surge Rules
 
 由 [Tiiwoo](https://tiiwoo.moe) 搜集、整理、维护的、个人自用的、仅适用于 [Surge](https://nssurge.com/) 的 Rule Snippet。
 
