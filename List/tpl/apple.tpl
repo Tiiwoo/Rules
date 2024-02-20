@@ -50,7 +50,6 @@ DOMAIN,supportdownload.apple.com,{{ cdn_rule }}
 DOMAIN,appldnld.apple.com,{{ cdn_rule }}
 DOMAIN,appldnld.apple.com.edgesuite.net,{{ cdn_rule }}
 DOMAIN,swcdn.apple.com,{{ cdn_rule }}
-DOMAIN,apptrailers.itunes.apple.com,{{ cdn_rule }}
 DOMAIN,updates-http.cdn-apple.com,{{ cdn_rule }}
 DOMAIN,updates.cdn-apple.com,{{ cdn_rule }}
 # App Store & iTunes Images
@@ -59,10 +58,11 @@ DOMAIN-SUFFIX,mzstatic.com,{{ cdn_rule }}
 PROCESS-NAME,storedownloadd,{{ cdn_rule }}
 # iOS App Store
 USER-AGENT,com.apple.appstored*,{{ cdn_rule }}
-# Apple Music Streaming
+# iTunes
 DOMAIN,aod.itunes.apple.com,{{ cdn_rule }}
 DOMAIN,mvod.itunes.apple.com,{{ cdn_rule }}
 DOMAIN,streamingaudio.itunes.apple.com,{{ cdn_rule }}
+DOMAIN,apptrailers.itunes.apple.com,{{ cdn_rule }}
 # Other
 DOMAIN,download.developer.apple.com,{{ cdn_rule }}
 DOMAIN,downloaddispatch.itunes.apple.com,{{ cdn_rule }}
@@ -70,11 +70,9 @@ DOMAIN,app-site-association.cdn-apple.com,{{ cdn_rule }}
 #
 # Apple Non-China CDN
 #
-# Trailer
+# iTunes
 DOMAIN-SUFFIX,hls.itunes.apple.com,{{ default_rule }}
-# Movie Stream
 DOMAIN-SUFFIX,hls-amt.itunes.apple.com,{{ default_rule }}
-# iTunes Music Stream
 DOMAIN-SUFFIX,audio-ssl.itunes.apple.com,{{ default_rule }}
 DOMAIN-SUFFIX,cdn-apple.com,{{ default_rule }}
 DOMAIN,cdn.apple-cloudkit.com,{{ default_rule }}
@@ -113,6 +111,7 @@ USER-AGENT,passd*,DIRECT
 USER-AGENT,Wallet*,DIRECT
 # locationd
 DOMAIN,gs-loc.apple.com,{{ location_rule }}
+DOMAIN,gs-loc-cn.apple.com,{{ location_rule }}
 DOMAIN-SUFFIX,ls.apple.com.akadns.net,{{ location_rule }}
 DOMAIN-SUFFIX,ls.apple.com.edgesuite.net,{{ location_rule }}
 # Reserve
@@ -135,6 +134,10 @@ DOMAIN,sequoia.apple.com,DIRECT
 DOMAIN,seed-sequoia.siri.apple.com,DIRECT
 # Settings
 DOMAIN,sq-device.apple.com,DIRECT
+# CN specific
+DOMAIN-KEYWORD,-cn.apple.com,DIRECT
+DOMAIN-SUFFIX,icloud.com.cn,DIRECT
+DOMAIN-SUFFIX,apple.com.cn,DIRECT
 #
 # Apple 其他自选
 #
