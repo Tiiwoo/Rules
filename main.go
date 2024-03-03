@@ -11,10 +11,11 @@ func main() {
 	now := time.Now()
 	fmt.Println("Start build...")
 	var wg sync.WaitGroup
-	wg.Add(3)
+	wg.Add(4)
 	go build.BuildAppleTpl(&wg)
 	go build.BuildAppleCdn(&wg)
 	go build.BuildChnCidr(&wg)
+	go build.Build1stream(&wg)
 	wg.Wait()
 	build.BuildPublic()
 	fmt.Println("Build done!")
