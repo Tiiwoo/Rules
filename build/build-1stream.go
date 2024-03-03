@@ -38,6 +38,9 @@ func Build1stream(wg *sync.WaitGroup) {
 			if strings.HasPrefix(line, "#nameserver") || strings.HasPrefix(line, "# nameserver") {
 				continue
 			}
+			if strings.Contains(line, "# > GB:Sky GO /<replace with groupname>SkyGONZ/<replace with groupname>") {
+				line = "# > GB:Sky GO"
+			}
 			if !strings.HasPrefix(line, "#") && strings.HasPrefix(line, "nameserver") {
 				line = strings.Split(line, "/")[1]
 			}
