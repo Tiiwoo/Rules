@@ -1,6 +1,7 @@
 #!name=Network Info Panel
 #!desc=网络面板 @Tiiwoo
 #!system=ios
+#!category=🌐 NetInfo
 
 [Panel]
 NetInfoPanel=title="",content="",style=info,script-name=net-info-panel.js,update-interval=1
