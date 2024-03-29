@@ -428,6 +428,13 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
         );
       }
       const info = JSON.parse(response.data);
+      if (info.isp.includes('China Mobile Hong Kong')) {
+        info.isp.replace(
+          'China Mobile Hong Kong Company Limited',
+          'China Mobile Hong Kong'
+        );
+        info.as.replace('China Mobile Hong Kong Company Limited', 'CMHK');
+      }
       $done({
         title: getSSID() ?? getCellularInfo(),
         content:
