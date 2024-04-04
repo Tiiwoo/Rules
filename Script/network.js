@@ -432,10 +432,14 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
         info.as.includes('AS137872') ||
         info.isp.includes('China Mobile Hong Kong')
       ) {
-        info.isp = info.isp.replace(
-          'China Mobile Hong Kong Company Limited',
-          'China Mobile Hong Kong'
-        );
+        if (info.isp.includes('China Mobile Hong Kong Company Limited')) {
+          info.isp = info.isp.replace(
+            'China Mobile Hong Kong Company Limited',
+            'China Mobile Hong Kong'
+          );
+        } else {
+          info.isp = 'China Mobile Hong Kong';
+        }
         info.as = info.as.replace(
           'China Mobile Hong Kong Company Limited',
           'CMHK'
