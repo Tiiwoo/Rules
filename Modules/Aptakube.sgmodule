@@ -1,0 +1,8 @@
+#!name=Unlock Aptakube
+#!desc=Unlock Aptakube
+
+[MITM]
+hostname = %APPEND% *.aptakube.com
+
+[Script]
+Aptakube = type=http-request,pattern=^https://aptakube.com/api/v1/license/validate,requires-body=1,max-size=0,debug=1,script-path=https://ruleset.tiiwoo.moe/Script/aptakube.js
