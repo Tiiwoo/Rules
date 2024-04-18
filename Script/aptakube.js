@@ -1,6 +1,6 @@
 let url = $request.url;
 let activate = () => {
-  if (url !== 'https://aptakube.com/api/v1/trial/validate') return;
+  if (url !== 'https://aptakube.com/api/v1/license/validate') return;
   let body = JSON.stringify({
     success: true,
     response: {
