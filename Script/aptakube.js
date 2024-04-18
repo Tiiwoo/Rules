@@ -15,3 +15,4 @@ let activate = () => {
     },
   });
 };
+activate();
