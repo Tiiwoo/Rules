@@ -3,7 +3,7 @@ let activate = () => {
   if (url !== 'https://aptakube.com/api/v1/license/validate') return;
   let body = JSON.stringify({
     success: true,
-    response: {
+    data: {
       expiry_date: '2035-06-09',
       token: 'aaaaa',
     },
