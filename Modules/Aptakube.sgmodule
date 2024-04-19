@@ -1,5 +1,7 @@
 #!name=Unlock Aptakube
 #!desc=Unlock Aptakube and hijack events
+#!system=macos
+#!category=🕹️ Unlock
 
 [MITM]
 hostname = %APPEND% aptakube.com, *aptabase.com
