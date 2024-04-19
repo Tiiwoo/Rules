@@ -1,6 +1,6 @@
 #!name=Unlock Aptakube
 #!desc=Unlock Aptakube and hijack events
-#!system=macos
+#!system=mac
 #!category=🕹️ Unlock
 
 [MITM]
