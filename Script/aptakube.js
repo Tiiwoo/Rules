@@ -1,4 +1,5 @@
 let url = $request.url;
+
 let activate = () => {
   if (url !== 'https://aptakube.com/api/v1/license/validate') return;
   let body = JSON.stringify({
@@ -13,4 +14,17 @@ let activate = () => {
     },
   });
 };
+
+let eventHijack = () => {
+  if (url !== 'https://eu.aptabase.com/api/v0/events') return;
+  // return empty body
+  let body = JSON.stringify({});
+  $done({
+    response: {
+      body,
+    },
+  });
+};
+
 activate();
+eventHijack();
