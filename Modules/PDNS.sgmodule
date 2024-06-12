@@ -2,10 +2,6 @@
 #!desc=Solve meituan dns failed
 #!category=🌐 DNS
 
-[General]
-# 使 DoH 请求通过代理策略执行
-encrypted-dns-follow-outbound-mode = true
-
 [Host]
 # > 美团
 *.dianping.com = server:223.5.5.5
