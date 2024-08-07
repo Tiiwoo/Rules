@@ -445,6 +445,16 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
           'CMHK'
         );
       }
+      if (
+        info.isp.includes(
+          'Hong Kong Telecommunications (HKT) Limited Mass Internet'
+        )
+      ) {
+        info.isp = info.isp.replace(
+          'Hong Kong Telecommunications (HKT)',
+          'HKT'
+        );
+      }
       $done({
         title: getSSID() ?? getCellularInfo(),
         content:
