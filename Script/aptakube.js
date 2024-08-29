@@ -37,5 +37,18 @@ let eventHijack = () => {
   });
 };
 
+let noticeHijack = () => {
+  if (url !== 'https://aptakube.com/api/v1/license/notice') return;
+  let body = JSON.stringify({
+    msg: 'OK',
+  });
+  $done({
+    response: {
+      body,
+    },
+  });
+};
+
 activate();
 eventHijack();
+noticeHijack();
