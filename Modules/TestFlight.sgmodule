@@ -1,0 +1,10 @@
+#!name=Automatically Join TestFlight
+#!desc=Automatically Join TestFlight.
+#!system=ios
+#!category=🎒 TestFlight
+
+[Script]
+TestFlight=type=cron, cronexp=0 */30 * * * *,script-path=https://ruleset.tiiwoo.moe/Script/testflight.js,wake-system=0,timeout=180
+
+[MITM]
+hostname = %APPEND% testflight.apple.com
