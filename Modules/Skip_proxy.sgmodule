@@ -1,0 +1,8 @@
+#!name=Skip Proxy And Real-IP Lists
+#!desc=Skip proxy detect
+#!system=ios
+#!category=🎒 Utils
+
+[General]
+skip-proxy = %APPEND% www.baidu.com,yunbusiness.ccb.com,wxh.wo.cn,gate.lagou.com,www.abchina.com.cn,www.shanbay.com,login-service.mobile-bank.psbc.com,mobile-bank.psbc.com,id6.me
+always-real-ip = %APPEND% easy-login.10099.com.cn,*-update.xoyocdn.com,id6.me,open.e.189.cn
