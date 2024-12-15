@@ -43,7 +43,7 @@ export async function build1stream() {
       lines.push(processedLine);
     }
 
-    await fs.writeFile('./List/non_ip/stream.conf', lines.join('\n'));
+    await fs.writeFile('./List/non_ip/1stream.conf', lines.join('\n'));
     const end = performance.now();
     const elapsed = end - start;
     console.log(`Build 1stream conf time: ${elapsed / 1000}s`);
