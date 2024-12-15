@@ -11,10 +11,11 @@
     "allowJs": true,
     "outDir": "dist",
     "resolveJsonModule": true,
-    "baseUrl": "./src", // 添加这一行
+    "baseUrl": "./src",
     "paths": {
-      "*": ["*"] // 添加这一行
+      "*": ["*"],
+      "@utils/*": ["utils/*"]
     }
   },
-  "include": ["src/**/*"] // 添加这一行，指定需要编译的文件
+  "include": ["src/**/*"]
 }

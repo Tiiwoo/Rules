@@ -1,6 +1,6 @@
 import * as fs from 'node:fs/promises';
-import { walkDir, generateHtml } from '../utils/utils';
-import { TreeEntry } from '../types';
+import { walkDir, generateHtml } from '@utils/utils';
+import { TreeEntry } from '@utils/types';
 
 export async function buildPublic(): Promise<void> {
   try {

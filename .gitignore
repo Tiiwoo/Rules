@@ -5,3 +5,4 @@ List/non_ip/1stream.conf
 index.html
 node_modules
 .DS_Store
+dist

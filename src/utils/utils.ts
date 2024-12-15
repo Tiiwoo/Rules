@@ -1,6 +1,6 @@
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
-import { TreeEntry } from '../types';
+import { TreeEntry } from './types';
 
 // Priority Sorter
 const priorityOrder: { [key: string]: number } = {
