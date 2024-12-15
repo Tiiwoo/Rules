@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "esnext",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "allowJs": true,
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "baseUrl": "./src", // 添加这一行
+    "paths": {
+      "*": ["*"] // 添加这一行
+    }
+  },
+  "include": ["src/**/*"] // 添加这一行，指定需要编译的文件
+}

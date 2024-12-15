@@ -1,0 +1,18 @@
+{
+  "name": "rules",
+  "version": "0.0.1",
+  "description": "Surge rules builder",
+  "main": "dist/main.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsx src/main.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
